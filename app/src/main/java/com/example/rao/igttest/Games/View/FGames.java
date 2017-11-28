@@ -12,13 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.rao.igttest.App.IGTTestApplication;
 import com.example.rao.igttest.Games.Entity.GameEntity;
 import com.example.rao.igttest.Games.Presenter.GamesPresenter;
-import com.example.rao.igttest.Games.Presenter.GamesPresenterImpl;
-import com.example.rao.igttest.MainActivity;
 import com.example.rao.igttest.R;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,17 +30,20 @@ import butterknife.ButterKnife;
 
 public class FGames extends Fragment implements GamesView {
 
+    @Inject
+    GamesPresenter presenter;
+    @Inject
+    GamesAdapter gamesAdapter;
     @BindView(R.id.rv_games)
     RecyclerView rvGames;
-    private GamesAdapter gamesAdapter;
-    private GamesPresenter presenter;
     OnGameSelectedListener mListener;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.games_layout, container, false);
+        ((IGTTestApplication)getActivity().getApplication()).getAppComponent().inject(this);
+        presenter.setView(this);
         ButterKnife.bind(this, view);
-        presenter = new GamesPresenterImpl(this);
         return view;
     }
 
@@ -77,7 +81,7 @@ public class FGames extends Fragment implements GamesView {
 
     @Override
     public void initRecyclerView(List<GameEntity> gameEntities) {
-        gamesAdapter = new GamesAdapter(getActivity(), presenter, gameEntities);
+        gamesAdapter.setAdapter(getActivity(), presenter, gameEntities);
         rvGames.setAdapter(gamesAdapter);
         rvGames.setLayoutManager(new LinearLayoutManager(getActivity()));
     }

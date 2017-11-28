@@ -1,4 +1,4 @@
-package com.example.rao.igttest;
+package com.example.rao.igttest.Network;
 
 import com.example.rao.igttest.Games.Entity.DemoJSONAPIData;
 import com.example.rao.igttest.Games.Entity.GamesEntity;

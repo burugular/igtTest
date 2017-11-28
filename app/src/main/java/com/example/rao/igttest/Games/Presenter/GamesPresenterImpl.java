@@ -1,20 +1,13 @@
 package com.example.rao.igttest.Games.Presenter;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
-import com.example.rao.igttest.ApiClient;
-import com.example.rao.igttest.ApiInterface;
+import com.example.rao.igttest.Network.ApiClient;
+import com.example.rao.igttest.Network.ApiInterface;
 import com.example.rao.igttest.Games.Entity.GameEntity;
 import com.example.rao.igttest.Games.Entity.GamesEntity;
-import com.example.rao.igttest.Games.View.FGames;
-import com.example.rao.igttest.Games.View.GamesAdapter;
 import com.example.rao.igttest.Games.View.GamesView;
-
-import java.util.List;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -36,9 +29,8 @@ public class GamesPresenterImpl implements GamesPresenter {
     @NonNull
     private CompositeDisposable mCompositeDisposable = new CompositeDisposable();
 
-    public GamesPresenterImpl() {}
-
-    public GamesPresenterImpl(GamesView gamesView) {
+    @Override
+    public void setView(GamesView gamesView) {
         this.gamesView = gamesView;
     }
 
@@ -49,7 +41,6 @@ public class GamesPresenterImpl implements GamesPresenter {
 
     @Override
     public void showGameDetail(GameEntity gameEntity) {
-        //GamesView gamesView = new FGames();
         gamesView.onListItemClick(gameEntity);
 
     }

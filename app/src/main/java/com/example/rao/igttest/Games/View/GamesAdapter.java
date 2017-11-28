@@ -32,7 +32,14 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.GamesViewHol
     Context context;
     GamesPresenter gamesPresenter;
 
-    public GamesAdapter(Context context, GamesPresenter gamesPresenter, List<GameEntity> gameEntities) {
+//    public GamesAdapter(Context context, GamesPresenter gamesPresenter, List<GameEntity> gameEntities) {
+//        layoutInflater = LayoutInflater.from(context);
+//        this.data = gameEntities;
+//        this.context = context;
+//        this.gamesPresenter = gamesPresenter;
+//    }
+
+    public void setAdapter(Context context, GamesPresenter gamesPresenter, List<GameEntity> gameEntities){
         layoutInflater = LayoutInflater.from(context);
         this.data = gameEntities;
         this.context = context;

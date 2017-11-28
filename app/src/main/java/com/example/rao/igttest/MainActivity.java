@@ -1,4 +1,4 @@
-package com.example.rao.igttest.Games.View;
+package com.example.rao.igttest;
 
 import android.content.Intent;
 import android.support.v4.app.Fragment;
