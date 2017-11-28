@@ -1,4 +1,4 @@
-package com.example.rao.igttest;
+package com.example.rao.igttest.Games.View;
 
 import android.content.Intent;
 import android.support.v4.app.Fragment;
@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import com.example.rao.igttest.Games.Entity.GameEntity;
 import com.example.rao.igttest.Games.View.FGameDetail;
 import com.example.rao.igttest.Games.View.FGames;
+import com.example.rao.igttest.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
